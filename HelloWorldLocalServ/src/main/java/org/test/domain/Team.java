@@ -1,19 +1,24 @@
 package org.test.domain;
 
+import javax.persistence.*;
 import java.util.Set;
 
+@Entity
 public class Team {
 
+    @Id @GeneratedValue
+    Long id;
     String name;
     String location;
     String mascot;
+    @OneToMany(cascade = CascadeType.ALL) @JoinColumn(name = "teamId")
     Set<Player> players;
 
     public Team() {
         super();
     }
 
-    public Team(String name, String location, Set<Player> players) {
+    public Team(String location, String name, Set<Player> players) {
         this();
         this.name = name;
         this.location = location;
