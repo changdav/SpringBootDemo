@@ -4,14 +4,12 @@ import com.example.domain.Team;
 import com.example.repository.TeamRespository;
 import com.sun.tools.javac.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
-/**
- * Created by David on 11/11/16.
- */
 @RestController
 public class TeamController {
     @Autowired TeamRespository teamRepository;
@@ -19,5 +17,10 @@ public class TeamController {
     @RequestMapping("/teams")
     public Iterable<Team> getTeams() {
         return teamRepository.findAll();
+    }
+
+    @RequestMapping("/teams/{id}")
+    public Team getTeam(@PathVariable Long id) {
+        return teamRepository.findOne(id);
     }
 }

@@ -24,14 +24,14 @@ public class DemoApplication {
         List<Team> list = new ArrayList<>();
 
         Team team1 = new Team();
-        team1.setId(0l);
+        team1.setId(1l);
         team1.setLocation("Cali");
         team1.setMascot("Falcons");
         team1.setName("Torrey Pines");
         list.add(team1);
 
         Team team2 = new Team();
-        team2.setId(1l);
+        team2.setId(2l);
         team2.setLocation("Washington");
         team2.setName("Generals");
         list.add(team2);
