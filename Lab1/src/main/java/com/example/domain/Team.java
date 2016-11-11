@@ -1,10 +1,15 @@
 package com.example.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Created by David on 11/11/16.
  */
+@Entity
 public class Team {
-    Long id;
+    @Id @GeneratedValue Long id;
     String name;
     String location;
     String mascot;
