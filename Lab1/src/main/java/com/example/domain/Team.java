@@ -1,8 +1,7 @@
 package com.example.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by David on 11/11/16.
@@ -13,6 +12,20 @@ public class Team {
     String name;
     String location;
     String mascot;
+    @OneToMany(cascade = CascadeType.ALL) @JoinColumn(name = "teamId")
+    Set<Player> players;
+
+    public Team() {
+        super();
+    }
+
+    public Team(String name, String location, String mascot, Set<Player> players) {
+        this();
+        this.name = name;
+        this.location = location;
+        this.mascot = mascot;
+        this.players = players;
+    }
 
     public Long getId() {
         return id;
@@ -44,5 +57,13 @@ public class Team {
 
     public void setMascot(String mascot) {
         this.mascot = mascot;
+    }
+
+    public Set<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(Set<Player> players) {
+        this.players = players;
     }
 }
